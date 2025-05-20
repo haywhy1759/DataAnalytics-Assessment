@@ -6,7 +6,7 @@ SELECT
   ROUND(
     (COUNT(*) / NULLIF(TIMESTAMPDIFF(MONTH, a.created_on, CURDATE()), 0)) /*--this line of query calculates the average number of transactions per month-*/
     * 12 
-    * (0.1 * AVG(b.amount)), 
+    * (0.1 * AVG(b.amount/100)), 
     2
   ) AS estimated_clv /*--this line of query estimates the customer lifetime value (CLV) based on the average transaction amount and frequency-*/
 FROM 
