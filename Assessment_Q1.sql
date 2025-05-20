@@ -4,7 +4,7 @@ SELECT
   b.name, 
   COUNT(DISTINCT CASE WHEN a.is_regular_savings = 1 THEN a.id END) AS savings_count, /*--this line of query counts users with savings accounts-----*/
   COUNT(DISTINCT CASE WHEN a.is_a_fund = 1 THEN a.id END) AS investment_count,  /*-this line of query counts users with investment accounts-----*/
-  SUM(c.confirmed_amount/100) AS total_deposits
+  SUM(c.confirmed_amount/100) AS total_deposits /*-this line of query sums and converts the amount from kobo to naira-----*/
 FROM 
   `plans_plan` a
 JOIN 
